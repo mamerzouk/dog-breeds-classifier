@@ -46,6 +46,8 @@ def get_pet_labels(image_dir):
     results_dic = dict()
     # filenames is a list of the image_dir files names
     filenames = listdir(image_dir)
+    # Removing the hidden file (that start with '.')
+    filenames = list(filter(lambda x: x[0] != '.', filenames))
     # Looping over the filenames
     for filename in filenames:
         # Since the label can be composed of several words spearated by underscores, we do :
@@ -63,5 +65,5 @@ def get_pet_labels(image_dir):
                 break
         # Adding the label to the result_dic *as a list*
         results_dic[filename] = [label]
-        
+
     return results_dic

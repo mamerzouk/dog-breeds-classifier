@@ -68,6 +68,8 @@ def classify_images(images_dir, results_dic, model):
     """
     # paths is now a list containing the names of the images_dir files
     paths = listdir(images_dir)
+    # Removing the hidden file (that start with '.')
+    paths = list(filter(lambda x: x[0] != '.', paths))
     # Loop over the list image file names
     for path in paths:
         # result contains the model classification for the actual image file (in lower case)

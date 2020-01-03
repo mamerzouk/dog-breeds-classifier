@@ -41,8 +41,11 @@ def get_input_args():
     # Creating a Parse using ArgumentParser
     parser = argparse.ArgumentParser()
     # Adding the diffrent arguments with their default values
-    parser.add_argument('--dir', required=False, default="pet_images")
-    parser.add_argument('--arch', required=False, default="vgg")
-    parser.add_argument('--dogfile', required=False, default="dognames.txt")
+    parser.add_argument('--dir', required=False, default="pet_images", type=str,
+                        help='The directory containing the dogs images files')
+    parser.add_argument('--arch', required=False, default="vgg", type=str,
+                        help='The architecture of the neural network model')
+    parser.add_argument('--dogfile', required=False, default="dognames.txt", type=str,
+                        help='The file containing the dogs breeds names')
 
     return parser.parse_args()
